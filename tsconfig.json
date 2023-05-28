@@ -2,6 +2,26 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@screens/*": [
+        "./src/screens/*"
+      ],
+      "@storage/*": [
+        "./src/storage/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ]
+    }
+  },
+}
     // "target": "ESNext",
     // "useDefineForClassFields": true,
     // "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -16,7 +36,5 @@
     // "isolatedModules": false,
     // "noEmit": true,
     // "jsx": "react-jsx"
-  },
   // "include": ["src"],
   // "references": [{ "path": "./tsconfig.node.json" }]
-}
