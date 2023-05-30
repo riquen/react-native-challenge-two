@@ -1,5 +1,5 @@
 import logoImg from '@assets/logo.png'
-import { Avatar } from '@components/Avatar'
+import { Avatar } from '@screens/Home/components/Avatar'
 
 import { Container, Logo } from './styles'
 
