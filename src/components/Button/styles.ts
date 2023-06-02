@@ -14,6 +14,8 @@ export const Container = styled(TouchableOpacity)<ButtonStyleProps>`
   background-color: ${({ theme, type }) =>
     type === 'PRIMARY' ? theme.COLORS.GRAY_6 : theme.COLORS.WHITE};
   border-radius: 6px;
+  flex-direction: row;
+  gap: 8px;
   justify-content: center;
   align-items: center;
 `
