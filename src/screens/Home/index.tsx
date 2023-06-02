@@ -1,11 +1,44 @@
 import { Plus } from 'phosphor-react-native'
 import { useTheme } from 'styled-components/native'
+import { SectionList } from 'react-native'
 
 import { Header } from '@screens/Home/components/Header'
 import { Button } from '@components/Button'
 
-import { Container, MealsLabel } from './styles'
+import { Container, MealsLabel, Title } from './styles'
 import { StatisticalCard } from './components/StatisticalCard'
+import { MealCard } from './components/MealCard'
+
+const DATA = [
+  {
+    data: [
+      {
+        time: '12:00',
+        meal: 'French Fries',
+        isDietMeal: false,
+      },
+      {
+        time: '15:00',
+        meal: 'Onion Rings',
+        isDietMeal: true,
+      },
+    ],
+  },
+  {
+    data: [
+      {
+        time: '18:00',
+        meal: 'Fried Shrimps',
+        isDietMeal: false,
+      },
+      {
+        time: '21:00',
+        meal: 'Ice Cream',
+        isDietMeal: true,
+      },
+    ],
+  },
+]
 
 export function Home() {
   const { COLORS } = useTheme()
@@ -13,9 +46,17 @@ export function Home() {
   return (
     <Container>
       <Header />
-      <StatisticalCard />
+      <StatisticalCard isDietMeal={false} />
       <MealsLabel>Refeições</MealsLabel>
       <Button text="Nova refeição" icon={<Plus color={COLORS.WHITE} />} />
+      <SectionList
+        sections={DATA}
+        keyExtractor={({ meal }) => meal}
+        renderItem={({ item }) => (
+          <MealCard time={item.time} meal={item.meal} isDietMeal={item.isDietMeal} />
+        )}
+        renderSectionHeader={() => <Title>02.06.23</Title>}
+      />
     </Container>
   )
 }

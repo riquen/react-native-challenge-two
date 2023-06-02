@@ -15,3 +15,12 @@ export const MealsLabel = styled.Text`
     color: ${theme.COLORS.GRAY_7};
   `}
 `
+
+export const Title = styled.Text`
+  margin-top: 24px;
+  ${({ theme }) => css`
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.MD}px;
+    color: ${theme.COLORS.GRAY_7};
+  `}
+`

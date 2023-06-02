@@ -2,13 +2,18 @@ import { ArrowUpRight } from 'phosphor-react-native'
 import { TouchableOpacity } from 'react-native'
 import styled, { css } from 'styled-components/native'
 
-export const Container = styled.View`
+export type StyleProps = {
+  isDietMeal: boolean
+}
+
+export const Container = styled.View<StyleProps>`
   margin: 24px 0 24px;
   justify-content: center;
   align-items: center;
   padding: 20px 16px;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({ theme, isDietMeal }) =>
+    isDietMeal ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
 `
 
 export const Percent = styled.Text`
@@ -35,6 +40,6 @@ export const ArrowButton = styled(TouchableOpacity)`
   right: 8px;
 `
 
-export const Icon = styled(ArrowUpRight).attrs(({ theme }) => ({
-  color: theme.COLORS.GREEN_DARK,
+export const Icon = styled(ArrowUpRight).attrs<StyleProps>(({ theme, isDietMeal }) => ({
+  color: isDietMeal ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
 }))``
