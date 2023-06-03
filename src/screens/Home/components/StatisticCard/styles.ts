@@ -42,4 +42,4 @@ export const ArrowButton = styled(TouchableOpacity)`
 
 export const Icon = styled(ArrowUpRight).attrs<StyleProps>(({ theme, isDietMeal }) => ({
   color: isDietMeal ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
-}))``
+}))<StyleProps>``

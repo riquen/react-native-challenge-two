@@ -154,6 +154,7 @@
         ],
         "no-underscore-dangle": "off",
         "react/require-default-props": "off",
-        "func-names": "off"
+        "func-names": "off",
+        "react/jsx-no-bind":"off"
     }
 }

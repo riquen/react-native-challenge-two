@@ -6,7 +6,7 @@ import { Header } from '@screens/Home/components/Header'
 import { Button } from '@components/Button'
 
 import { Container, MealsLabel, Title } from './styles'
-import { StatisticalCard } from './components/StatisticalCard'
+import { StatisticCard } from './components/StatisticCard'
 import { MealCard } from './components/MealCard'
 
 const DATA = [
@@ -46,7 +46,7 @@ export function Home() {
   return (
     <Container>
       <Header />
-      <StatisticalCard isDietMeal={false} />
+      <StatisticCard isDietMeal />
       <MealsLabel>Refeições</MealsLabel>
       <Button text="Nova refeição" icon={<Plus color={COLORS.WHITE} />} />
       <SectionList

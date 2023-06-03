@@ -1,7 +1,10 @@
 export declare global {
   namespace ReactNavigation {
     interface RootParamList {
-      home: undefind
+      home: undefined
+      statistics: {
+        isDietMeal: boolean
+      }
     }
   }
 }
