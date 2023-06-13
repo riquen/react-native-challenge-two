@@ -5,6 +5,7 @@ export declare global {
       statistics: {
         isDietMeal: boolean
       }
+      newMeal: undefined
     }
   }
 }

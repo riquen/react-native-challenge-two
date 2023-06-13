@@ -1,8 +1,10 @@
+import { ArrowLeft } from 'phosphor-react-native'
+
 import { useNavigation } from '@react-navigation/native'
 
-import { BackButton, Container, Description, Icon, Percent, StyleProps } from './styles'
+import { BackButton, Container, Title } from './styles'
 
-export function Header({ isDietMeal }: StyleProps) {
+export function Header() {
   const navigation = useNavigation()
 
   function handleBackClick() {
@@ -12,10 +14,9 @@ export function Header({ isDietMeal }: StyleProps) {
   return (
     <Container>
       <BackButton onPress={handleBackClick}>
-        <Icon isDietMeal={isDietMeal} />
+        <ArrowLeft />
       </BackButton>
-      <Percent>90,86%</Percent>
-      <Description>das refeições dentro da dieta</Description>
+      <Title>Nova refeição</Title>
     </Container>
   )
 }

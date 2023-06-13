@@ -16,8 +16,10 @@ export function Statistics() {
   const { isDietMeal } = route.params as RouteParams
 
   return (
-    <Container isDietMeal={isDietMeal}>
-      <Header isDietMeal={isDietMeal} />
+    <>
+      <Container isDietMeal={isDietMeal}>
+        <Header isDietMeal={isDietMeal} />
+      </Container>
       <Content>
         <Title>Estatísticas gerais</Title>
         <Card title="22" description="melhor sequência de pratos dentro da dieta" />
@@ -35,6 +37,6 @@ export function Statistics() {
           />
         </Info>
       </Content>
-    </Container>
+    </>
   )
 }

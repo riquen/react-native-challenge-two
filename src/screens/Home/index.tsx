@@ -4,6 +4,7 @@ import { SectionList } from 'react-native'
 
 import { Header } from '@screens/Home/components/Header'
 import { Button } from '@components/Button'
+import { useNavigation } from '@react-navigation/native'
 
 import { Container, MealsLabel, Title } from './styles'
 import { StatisticCard } from './components/StatisticCard'
@@ -42,13 +43,18 @@ const DATA = [
 
 export function Home() {
   const { COLORS } = useTheme()
+  const navigation = useNavigation()
+
+  function handleClick() {
+    navigation.navigate('newMeal')
+  }
 
   return (
     <Container>
       <Header />
       <StatisticCard isDietMeal />
       <MealsLabel>Refeições</MealsLabel>
-      <Button text="Nova refeição" icon={<Plus color={COLORS.WHITE} />} />
+      <Button text="Nova refeição" icon={<Plus color={COLORS.WHITE} />} onPress={handleClick} />
       <SectionList
         sections={DATA}
         keyExtractor={({ meal }) => meal}
