@@ -1,5 +1,5 @@
-import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components/native'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from '@expo-google-fonts/nunito-sans'
 import { Loading } from '@components/Loading'
@@ -12,8 +12,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar barStyle="dark-content" />
-      {fontsLoaded ? <Routes /> : <Loading />}
+      <SafeAreaProvider>{fontsLoaded ? <Routes /> : <Loading />}</SafeAreaProvider>
     </ThemeProvider>
   )
 }

@@ -1,8 +1,9 @@
 import { useTheme } from 'styled-components/native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { useRoute } from '@react-navigation/native'
 
-import { Container, Content, Info, Title } from './styles'
+import { Container, GeneralStatistics, Info, Title } from './styles'
 import { Header } from './components/Header'
 import { Card } from './components/Card'
 
@@ -13,14 +14,13 @@ type RouteParams = {
 export function Statistics() {
   const { COLORS } = useTheme()
   const route = useRoute()
+  const insets = useSafeAreaInsets()
   const { isDietMeal } = route.params as RouteParams
 
   return (
-    <>
-      <Container isDietMeal={isDietMeal}>
-        <Header isDietMeal={isDietMeal} />
-      </Container>
-      <Content>
+    <Container isDietMeal={isDietMeal} style={{ paddingTop: insets.top }}>
+      <Header isDietMeal={isDietMeal} />
+      <GeneralStatistics>
         <Title>Estatísticas gerais</Title>
         <Card title="22" description="melhor sequência de pratos dentro da dieta" />
         <Card title="109" description="refeições registradas" />
@@ -36,7 +36,7 @@ export function Statistics() {
             backgroundColor={COLORS.RED_LIGHT}
           />
         </Info>
-      </Content>
-    </>
+      </GeneralStatistics>
+    </Container>
   )
 }
