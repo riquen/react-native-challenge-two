@@ -9,6 +9,7 @@ export type ButtonStyleProps = {
 
 export const Container = styled(TouchableOpacity)<ButtonStyleProps>`
   flex: 1;
+  width: 100%;
   min-height: 56px;
   max-height: 56px;
   background-color: ${({ theme, type }) =>
