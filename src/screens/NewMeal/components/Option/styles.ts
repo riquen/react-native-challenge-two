@@ -3,18 +3,26 @@ import styled, { css } from 'styled-components/native'
 
 export type OptionStyleProps = {
   isActive?: boolean
+  backgroundColor?: string
 }
 
 export const Container = styled(TouchableOpacity)<OptionStyleProps>`
+  width: 100%;
+  flex-shrink: 1;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
   padding: 16px;
   background-color: ${({ theme }) => theme.COLORS.GRAY_2};
-  width: 100%;
+  gap: 8px;
+`
 
-  ${({ theme, isActive }) => isActive && css``}
+export const Status = styled.View<OptionStyleProps>`
+  width: 8px;
+  height: 8px;
+  border-radius: 25px;
+  background-color: ${({ backgroundColor }) => backgroundColor};
 `
 
 export const Title = styled.Text`

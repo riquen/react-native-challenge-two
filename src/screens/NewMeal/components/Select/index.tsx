@@ -1,28 +1,29 @@
 import { useState } from 'react'
 
-import { FlatList } from 'react-native'
+import { useTheme } from 'styled-components'
 
 import { Container, Content, Label } from './styles'
 import { Option } from '../Option'
 
-type SelectProps = {
-  data: string[]
-}
-
-export function Select({ data }: SelectProps) {
+export function Select() {
+  const { COLORS } = useTheme()
   const [selected, setSelected] = useState<string>('')
 
   return (
     <Container>
       <Label>Está dentro da dieta?</Label>
       <Content>
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item}
-          renderItem={({ item }) => (
-            <Option title={item} isActive={item === selected} onPress={() => setSelected(item)} />
-          )}
-          horizontal
+        <Option
+          backgroundColor={COLORS.GREEN_DARK}
+          title="Sim"
+          isActive={selected === 'Sim'}
+          onPress={() => setSelected('Sim')}
+        />
+        <Option
+          backgroundColor={COLORS.RED_DARK}
+          title="Não"
+          isActive={selected === 'Não'}
+          onPress={() => setSelected('Não')}
         />
       </Content>
     </Container>

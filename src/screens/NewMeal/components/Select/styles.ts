@@ -5,8 +5,7 @@ export const Container = styled.View`
 `
 
 export const Content = styled.View`
-  width: 100%;
-  flex-shrink: 1;
+  flex-direction: row;
   gap: 8px;
 `
 

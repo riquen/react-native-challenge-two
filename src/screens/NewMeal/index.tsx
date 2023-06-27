@@ -27,11 +27,8 @@ export function NewMeal() {
             multiline
             textAlignVertical="top"
           />
-          <DateAndTime>
-            <Input label="Data" inputRef={newMealInputRef} />
-            <Input label="Hora" inputRef={newMealInputRef} />
-          </DateAndTime>
-          <Select data={['Sim', 'Não']} />
+          <DateAndTime />
+          <Select />
         </Form>
         <Button text="Cadastrar refeição" />
       </Content>

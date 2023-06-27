@@ -25,7 +25,7 @@ export const InputField = styled(TextInput)<StyleProps>`
   border-radius: 6px;
   padding: 14px;
   ${({ theme }) => css`
-  border: 1px solid ${theme.COLORS.GRAY_3}
+    border: 1px solid ${theme.COLORS.GRAY_3};
     color: ${theme.COLORS.GRAY_7};
     font-family: ${theme.FONT_FAMILY.REGULAR};
     font-size: ${theme.FONT_SIZE.SM}px;
