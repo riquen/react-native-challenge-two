@@ -7,10 +7,16 @@ type OptionProps = TouchableOpacityProps &
     title: string
   }
 
-export function Option({ title, backgroundColor, isActive = false, ...rest }: OptionProps) {
+export function Option({
+  title,
+  statusBackground,
+  isActive = false,
+  selected,
+  ...rest
+}: OptionProps) {
   return (
-    <Container isActive={isActive} {...rest}>
-      <Status backgroundColor={backgroundColor} />
+    <Container isActive={isActive} selected={selected} {...rest}>
+      <Status statusBackground={statusBackground} />
       <Title>{title}</Title>
     </Container>
   )
