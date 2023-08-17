@@ -1,18 +1,16 @@
-import { useCallback, useState } from 'react'
-
 import { useTheme } from 'styled-components'
 
 import { Container, Content, Label } from './styles'
 import { Option } from '../Option'
 import { SELECT_OPTIONS } from './constants'
 
-export function Select() {
-  const { COLORS } = useTheme()
-  const [selected, setSelected] = useState<SELECT_OPTIONS>()
+type SelectProps = {
+  selected?: SELECT_OPTIONS
+  onPress: (selected: SELECT_OPTIONS) => void
+}
 
-  const handlePress = useCallback((selectedOption: SELECT_OPTIONS) => {
-    setSelected(selectedOption)
-  }, [])
+export function Select({ selected, onPress }: SelectProps) {
+  const { COLORS } = useTheme()
 
   return (
     <Container>
@@ -23,14 +21,14 @@ export function Select() {
           title={SELECT_OPTIONS.YES}
           isActive={selected === SELECT_OPTIONS.YES}
           selected={selected}
-          onPress={() => handlePress(SELECT_OPTIONS.YES)}
+          onPress={() => onPress(SELECT_OPTIONS.YES)}
         />
         <Option
           statusBackground={COLORS.RED_DARK}
           title={SELECT_OPTIONS.NO}
           isActive={selected === SELECT_OPTIONS.NO}
           selected={selected}
-          onPress={() => handlePress(SELECT_OPTIONS.NO)}
+          onPress={() => onPress(SELECT_OPTIONS.NO)}
         />
       </Content>
     </Container>
