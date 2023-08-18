@@ -5,11 +5,20 @@ type ButtonTypeStyleProps = 'PRIMARY' | 'SECONDARY'
 
 export type ButtonStyleProps = {
   type?: ButtonTypeStyleProps
+  isSmallButton?: boolean
 }
 
 export const Container = styled(TouchableOpacity)<ButtonStyleProps>`
-  flex: 1;
-  width: 100%;
+  ${({ isSmallButton }) =>
+    isSmallButton
+      ? css`
+          align-self: center;
+          padding: 0 16px;
+        `
+      : css`
+          flex: 1;
+          width: 100%;
+        `}
   min-height: 56px;
   max-height: 56px;
   background-color: ${({ theme, type }) =>

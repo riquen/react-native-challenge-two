@@ -8,11 +8,18 @@ type ButtonProps = TouchableOpacityProps &
   ButtonStyleProps & {
     text: string
     icon?: ReactNode
+    isSmallButton?: boolean
   }
 
-export function Button({ text, icon, type = 'PRIMARY', ...rest }: ButtonProps) {
+export function Button({
+  text,
+  icon,
+  type = 'PRIMARY',
+  isSmallButton = false,
+  ...rest
+}: ButtonProps) {
   return (
-    <Container type={type} {...rest}>
+    <Container type={type} isSmallButton={isSmallButton} {...rest}>
       <View>{icon}</View>
       <Text>{text}</Text>
     </Container>

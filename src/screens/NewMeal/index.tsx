@@ -47,7 +47,11 @@ export function NewMeal() {
           </DateAndTime>
           <Select selected={selected} onPress={handleSelectPress} />
         </Form>
-        <Button text="Cadastrar refeição" onPress={handleButtonClick} disabled={!selected} />
+        <Button
+          text="Cadastrar refeição"
+          onPress={handleButtonClick}
+          // disabled={!selected}
+        />
       </Content>
     </Container>
   )
