@@ -45,8 +45,12 @@ export function Home() {
   const { COLORS } = useTheme()
   const navigation = useNavigation()
 
-  function handleClick() {
+  function handleButtonClick() {
     navigation.navigate('newMeal')
+  }
+
+  function handleMealClick(isDietMeal: boolean) {
+    navigation.navigate('meal', { isDietMeal })
   }
 
   return (
@@ -54,12 +58,21 @@ export function Home() {
       <Header />
       <StatisticCard isDietMeal />
       <MealsLabel>Refeições</MealsLabel>
-      <Button text="Nova refeição" icon={<Plus color={COLORS.WHITE} />} onPress={handleClick} />
+      <Button
+        text="Nova refeição"
+        icon={<Plus color={COLORS.WHITE} />}
+        onPress={handleButtonClick}
+      />
       <SectionList
         sections={DATA}
         keyExtractor={({ meal }) => meal}
         renderItem={({ item }) => (
-          <MealCard time={item.time} meal={item.meal} isDietMeal={item.isDietMeal} />
+          <MealCard
+            time={item.time}
+            meal={item.meal}
+            isDietMeal={item.isDietMeal}
+            onPress={() => handleMealClick(item.isDietMeal)}
+          />
         )}
         renderSectionHeader={() => <Title>02.06.23</Title>}
       />

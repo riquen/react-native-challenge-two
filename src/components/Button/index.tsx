@@ -21,7 +21,7 @@ export function Button({
   return (
     <Container type={type} isSmallButton={isSmallButton} {...rest}>
       <View>{icon}</View>
-      <Text>{text}</Text>
+      <Text type={type}>{text}</Text>
     </Container>
   )
 }

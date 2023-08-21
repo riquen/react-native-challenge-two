@@ -1,13 +1,16 @@
+import { TouchableOpacityProps } from 'react-native'
+
 import { Container, Time, Divider, Meal, MealStatus, MealStatusProps } from './styles'
 
-type MealCardProps = MealStatusProps & {
-  time: string
-  meal: string
-}
+type MealCardProps = TouchableOpacityProps &
+  MealStatusProps & {
+    time: string
+    meal: string
+  }
 
-export function MealCard({ time, meal, isDietMeal }: MealCardProps) {
+export function MealCard({ time, meal, isDietMeal, ...rest }: MealCardProps) {
   return (
-    <Container>
+    <Container {...rest}>
       <Time>{time}</Time>
       <Divider />
       <Meal>{meal}</Meal>

@@ -21,19 +21,21 @@ export const Container = styled(TouchableOpacity)<ButtonStyleProps>`
         `}
   min-height: 56px;
   max-height: 56px;
-  background-color: ${({ theme, type }) =>
-    type === 'PRIMARY' ? theme.COLORS.GRAY_6 : theme.COLORS.WHITE};
   border-radius: 6px;
   flex-direction: row;
   gap: 8px;
   justify-content: center;
   align-items: center;
+  ${({ theme, type }) => css`
+    background-color: ${type === 'PRIMARY' ? theme.COLORS.GRAY_6 : theme.COLORS.WHITE};
+    border: ${type === 'PRIMARY' ? 'none' : `1px solid ${theme.COLORS.GRAY_7}`};
+  `}
 `
 
-export const Text = styled.Text`
-  ${({ theme }) => css`
+export const Text = styled.Text<ButtonStyleProps>`
+  ${({ theme, type }) => css`
     font-family: ${theme.FONT_FAMILY.BOLD};
-    font-size: ${theme.FONT_SIZE.XS}px;
-    color: ${theme.COLORS.WHITE};
+    font-size: ${theme.FONT_SIZE.SM}px;
+    color: ${type === 'PRIMARY' ? theme.COLORS.WHITE : theme.COLORS.GRAY_7};
   `}
 `
